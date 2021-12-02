@@ -1,13 +1,25 @@
-word_to_guess = 'dog'
-board = len(word_to_guess) * '#'
+word_to_guess = list('dog')
+board = list(len(word_to_guess) * '#')
 print(board)
-guess = input('Guess a letter ')
-def guess_letter(letter, word):
-    if letter not in word:
+
+#return board with letter guess substitute
+
+
+def guess_letter(word):
+    guess = input('Guess a letter ')
+    
+    if guess not in word:
         print('Not in word :( Guess again!!')
     else: 
-        print('Congrats!!')
-        for letter in word_to_guess:
-            pass      
+        # line 15 assigns indexes to each character
+        # range determines the collection of numbers in order in word_to_guess
+        # index is the position for each letter
+        for index in range(len(word_to_guess)):
+            if guess == word_to_guess[index]:
+                board[index] = guess
+                print(board)
+            #not needed: print(list(new_board))
+            #for letter in word_to_guess:
 
-guess_letter(guess, word_to_guess)    
+guess_letter(word_to_guess)    
+# maybe not use: for letter in enumerate(word_to_guess):
