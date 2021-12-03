@@ -1,9 +1,29 @@
+        #guess_letter(word)
+                #not needed: print(list(new_board))
+                #for letter in word_to_guess:
+ # line 15 assigns indexes to each character
+            # range determines the collection of numbers in order in word_to_guess
+            # index is the position for each letter
+import random
+easy, normal, difficult = [], [], []
+
+# def computerword(word):
+with open('words.txt', 'r') as reader:
+    word_list = reader.read().splitlines()
+    print(len(word_list))
+word = random.choice(0, len(word_list))
+   
+    # if word <=5:
+    #     word == easy[]
+    # elif word >5 + <=8:
+    #     word == normal[]
+    # else word >9:
+    #     word == difficult[]
+    # return
+
 word_to_guess = list('dog')
 board = list(len(word_to_guess) * '#')
 print(board)
-
-#return board with letter guess substitute
-
 
 def guess_letter(word, counter):
     guess = input('Guess a letter ') 
@@ -11,19 +31,12 @@ def guess_letter(word, counter):
         counter += 1
         print(counter)
         print('Not in word :( Guess again!!')      
-    else: 
-            # line 15 assigns indexes to each character
-            # range determines the collection of numbers in order in word_to_guess
-            # index is the position for each letter
+    else:    
         for index in range(len(word_to_guess)):
             if guess == word_to_guess[index]:
                     board[index] = guess
-                    print(board)    
-            #print('Congrats!! You guessed correctly')
+                    print(board)   
     return counter
-        #guess_letter(word)
-                #not needed: print(list(new_board))
-                #for letter in word_to_guess:
 
 def play_game(word):
     counter = 0
@@ -36,5 +49,3 @@ def play_game(word):
 
 play_game(word_to_guess)
 
-#guess_letter(word_to_guess)    
-# maybe not use: for letter in enumerate(word_to_guess):
